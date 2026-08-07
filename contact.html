@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Ria Iyer</title>
+<meta name="description" content="Get in touch with Ria Iyer.">
+<link rel="stylesheet" href="assets/css/style.css?v=7">
+</head>
+<body>
+<canvas id="starfield"></canvas>
+<header class="hud">
+  <div class="hud-inner">
+    <a href="index.html" class="hud-logo">RIA<span class="blink">_</span>IYER.EXE</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">MENU</button>
+    <nav class="hud-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="archive.html">Archive</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-header">
+      <h1>GAME OVER? NOT YET.</h1>
+      <p>Questions, feedback, or opportunities — I'd love to hear from you.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="panel">
+        <span class="corner-tag">SEND A MESSAGE</span>
+        <form id="contact-form" style="margin-top:14px;">
+          <div class="form-row">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="message">MESSAGE</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button class="btn pink" type="submit">Send &#8594;</button>
+          <p id="form-status" style="margin-top:14px; font-size:18px;"></p>
+        </form>
+      </div>
+
+      <div class="stat-card">
+        <div class="avatar">@</div>
+        <h2>DIRECT CONNECT</h2>
+        <p class="muted" style="margin-bottom:20px;">Prefer email or LinkedIn? Same difference.</p>
+        <div class="contact-links" style="justify-content:center;">
+          <a class="btn ghost" href="mailto:riaiyer2@gmail.com">Email &#8594;</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/ria-iyer/" target="_blank" rel="noopener">LinkedIn &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 RIA IYER &mdash; BUILT WITH PIXELS &amp; PERSISTENCE</p>
+    <p><a href="https://www.linkedin.com/in/ria-iyer/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
