@@ -533,6 +533,9 @@ body.page-enter{ animation:fadeIn .4s ease; }
   box-shadow:var(--shadow-hard);
   text-decoration:none;
   white-space:nowrap;
+  max-width:44vw;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .mode-switch:hover{ background:var(--cyan); }
 @media (max-width:600px){
@@ -554,6 +557,9 @@ body.page-enter{ animation:fadeIn .4s ease; }
   box-shadow:var(--shadow-hard);
   text-decoration:none;
   white-space:nowrap;
+  max-width:44vw;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .back-start:hover{ background:var(--purple); color:#fff; }
 @media (max-width:600px){

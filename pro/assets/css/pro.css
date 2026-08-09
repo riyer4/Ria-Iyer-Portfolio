@@ -157,10 +157,11 @@ img{ max-width:100%; display:block; }
   display:flex; align-items:center; justify-content:center;
   color:#fff; font-size:56px; font-weight:800; letter-spacing:-.02em;
 }
-.p-skill-list{ margin-top:20px; display:flex; flex-direction:column; gap:12px; }
-.p-skill-row{ display:flex; justify-content:space-between; font-size:13.5px; color:var(--ink-dim); margin-bottom:4px; }
-.p-bar{ height:6px; background:var(--border-soft); border-radius:999px; overflow:hidden; }
-.p-bar i{ display:block; height:100%; width:var(--w,50%); background:var(--accent); border-radius:999px; }
+.p-skill-list{ margin:20px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+.p-skill-list li{
+  font-size:14px; font-weight:500; color:var(--ink);
+  padding:10px 14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm);
+}
 .prose{ color:var(--ink); font-size:15.5px; }
 .prose p{ margin:0 0 16px; }
 .prose p:last-child{ margin-bottom:0; }
@@ -207,6 +208,13 @@ img{ max-width:100%; display:block; }
 .p-contact-links a{ font-weight:600; font-size:14.5px; color:var(--accent); }
 .p-contact-links a:hover{ text-decoration:underline; }
 
+/* ---------- resume ---------- */
+.p-resume-embed{
+  width:100%; height:80vh;
+  border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--surface); box-shadow:var(--shadow-sm);
+}
+
 /* ---------- footer ---------- */
 .p-footer{ border-top:1px solid var(--border); padding:28px 0; margin-top:40px; }
 .p-footer-inner{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--ink-faint); }
@@ -223,6 +231,7 @@ img{ max-width:100%; display:block; }
   padding:11px 16px; border-radius:999px;
   box-shadow:var(--shadow);
   text-decoration:none; white-space:nowrap;
+  max-width:44vw; overflow:hidden; text-overflow:ellipsis;
 }
 .mode-switch:hover{ background:var(--accent); }
 @media (max-width:600px){ .mode-switch{ font-size:12px; padding:9px 13px; } }
@@ -238,6 +247,7 @@ img{ max-width:100%; display:block; }
   padding:11px 16px; border-radius:999px;
   box-shadow:var(--shadow-sm);
   text-decoration:none; white-space:nowrap;
+  max-width:44vw; overflow:hidden; text-overflow:ellipsis;
 }
 .back-start:hover{ background:var(--border-soft); box-shadow:var(--shadow); }
 @media (max-width:600px){ .back-start{ font-size:12px; padding:9px 13px; } }
