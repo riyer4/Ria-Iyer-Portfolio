@@ -538,3 +538,24 @@ body.page-enter{ animation:fadeIn .4s ease; }
 @media (max-width:600px){
   .mode-switch{ font-size:8px; padding:8px 10px; }
 }
+
+/* back-to-start pill (fixed, opposite corner from mode-switch) */
+.back-start{
+  position:fixed; left:clamp(12px,2vw,24px); bottom:clamp(12px,2vw,24px);
+  z-index:50;
+  font-family:var(--font-pixel);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:var(--text);
+  background:var(--bg-1);
+  padding:10px 14px;
+  border:2px solid var(--purple);
+  box-shadow:var(--shadow-hard);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.back-start:hover{ background:var(--purple); color:#fff; }
+@media (max-width:600px){
+  .back-start{ font-size:8px; padding:8px 10px; }
+}
