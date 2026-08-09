@@ -4,91 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ria Iyer — Portfolio</title>
-<meta name="description" content="Ria Iyer — Game Designer, HCI Researcher, and UI/UX Designer. Portfolio of games, prototypes, and product work.">
-<link rel="stylesheet" href="assets/css/style.css?v=7">
+<meta name="description" content="Ria Iyer — Product Designer, UX Researcher, and Game Designer. Choose the professional or game-mode experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pro-bg:#FAFAF8; --pro-ink:#17171A; --pro-dim:#6B6B70; --pro-accent:#3452E0;
+    --game-bg:#0d0b1a; --game-cyan:#4CE0E0; --game-pink:#ff4fa3; --game-yellow:#ffd54f;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; margin:0; overflow:hidden; }
+  body{ font-family:'Inter',sans-serif; }
+  .chooser{ position:relative; height:100vh; width:100vw; display:flex; }
+  .panel{
+    position:relative; flex:1; display:flex; align-items:center; justify-content:center;
+    overflow:hidden; cursor:pointer; text-decoration:none;
+    transition:flex .45s cubic-bezier(.6,0,.2,1);
+  }
+  .chooser:has(.panel:hover) .panel:not(:hover){ flex:0.8; }
+  .chooser:has(.panel:hover) .panel:hover{ flex:1.3; }
+
+  .panel-pro{ background:var(--pro-bg); color:var(--pro-ink); }
+  .panel-game{
+    background:var(--game-bg); color:#fff;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+
+  .panel-inner{ text-align:center; padding:24px; max-width:420px; }
+  .panel-eyebrow{ font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px; display:block; }
+  .panel-pro .panel-eyebrow{ color:var(--pro-accent); }
+  .panel-game .panel-eyebrow{ font-family:'Press Start 2P',monospace; font-size:9px; color:var(--game-yellow); letter-spacing:.05em; text-shadow:2px 2px 0 #000; }
+
+  .panel-title{ font-weight:800; letter-spacing:-.02em; margin:0 0 14px; }
+  .panel-pro .panel-title{ font-size:clamp(28px,4vw,44px); }
+  .panel-game .panel-title{ font-family:'Press Start 2P',monospace; font-size:clamp(16px,2.4vw,26px); text-shadow:3px 3px 0 #000; color:var(--game-cyan); line-height:1.4; }
+
+  .panel-desc{ margin:0 0 26px; font-size:15px; line-height:1.6; }
+  .panel-pro .panel-desc{ color:var(--pro-dim); }
+  .panel-game .panel-desc{ font-size:13px; color:#c9c4e8; }
+
+  .panel-cta{
+    display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:14.5px;
+    padding:12px 24px; border-radius:8px;
+  }
+  .panel-pro .panel-cta{ background:var(--pro-accent); color:#fff; }
+  .panel-game .panel-cta{
+    font-family:'Press Start 2P',monospace; font-size:10px; border-radius:0;
+    background:var(--game-pink); color:#0d0b1a; border:2px solid #000; box-shadow:4px 4px 0 #000;
+  }
+
+  .divider{
+    position:absolute; left:50%; top:0; bottom:0; width:1px;
+    background:rgba(128,128,128,.35); z-index:2; pointer-events:none;
+  }
+
+  .center-label{
+    position:absolute; top:24px; left:50%; transform:translateX(-50%);
+    z-index:3; text-align:center; pointer-events:none;
+  }
+  .center-label h1{ margin:0; font-size:14px; font-weight:700; letter-spacing:.06em; color:#888; text-transform:uppercase; }
+
+  @media (max-width:760px){
+    body{ overflow-y:auto; }
+    .chooser{ flex-direction:column; height:auto; min-height:100vh; }
+    .chooser:has(.panel:hover) .panel:not(:hover){ flex:1; }
+    .chooser:has(.panel:hover) .panel:hover{ flex:1; }
+    .panel{ min-height:50vh; flex:none !important; }
+    .divider{ display:none; }
+  }
+</style>
 </head>
 <body>
-<canvas id="starfield"></canvas>
-<header class="hud">
-  <div class="hud-inner">
-    <a href="index.html" class="hud-logo">RIA<span class="blink">_</span>IYER.EXE</a>
-    <button class="nav-toggle" aria-label="Toggle navigation">MENU</button>
-    <nav class="hud-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="archive.html">Archive</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
-<main>
-  <section class="hero">
-    <h1 class="hero-title">RIA IYER</h1>
-    <p class="hero-sub">Game Designer &middot; HCI Researcher &middot; UI/UX Designer</p>
-    <div class="hero-tags">
-      <span>PLAYER 1</span><span>GAME DESIGN + CS</span><span>UCSC</span>
-    </div>
-    <div class="btn-row">
-      <a class="btn" href="projects.html">Start Game &#8594;</a>
-      <a class="btn ghost" href="about.html">About Me</a>
-    </div>
-    <p class="press-start">PRESS START</p>
-    <div class="floor"></div>
-  </section>
+<div class="center-label"><h1>Choose Your Experience</h1></div>
 
-  <section class="section wrap">
-    <h2 class="section-title">HOW TO PLAY</h2>
-    <p class="section-sub">A quick map of this portfolio, arcade-cabinet style.</p>
-    <div class="grid">
-      <a class="card" href="projects.html">
-        <div class="card-body">
-          <h3 class="card-title">▶ PROJECTS</h3>
-          <p class="card-desc">15 games, prototypes, and UX/product builds — from tabletop card games to Phaser and Godot projects to a real UCSC portal redesign.</p>
-        </div>
-      </a>
-      <a class="card" href="archive.html">
-        <div class="card-body">
-          <h3 class="card-title">▶ ARCHIVE</h3>
-          <p class="card-desc">Bonus level: earlier design work — vector art, illustration, photography, and music pieces from years of creative side quests.</p>
-        </div>
-      </a>
-      <a class="card" href="about.html">
-        <div class="card-body">
-          <h3 class="card-title">▶ ABOUT</h3>
-          <p class="card-desc">Who's behind Player 1 — background, focus areas, and where to find me.</p>
-        </div>
-      </a>
-      <a class="card" href="resume.html">
-        <div class="card-body">
-          <h3 class="card-title">▶ RESUME</h3>
-          <p class="card-desc">Full stats sheet: education, skills, and experience in game design, UI/UX, and multimedia production.</p>
-        </div>
-      </a>
+<div class="chooser">
+  <a class="panel panel-pro" href="pro/index.html">
+    <div class="panel-inner">
+      <span class="panel-eyebrow">Recruiter &amp; Client Friendly</span>
+      <h2 class="panel-title">Professional</h2>
+      <p class="panel-desc">A clean, industry-standard look at my product design, UX research, and case study work.</p>
+      <span class="panel-cta">Enter Professional Site &#8594;</span>
     </div>
-  </section>
-
-  <section class="section wrap center">
-    <div class="panel">
-      <span class="corner-tag">NPC DIALOGUE</span>
-      <p class="prose" style="margin:10px 0 0;">
-        "I love including aspects of my life in all of my works, conveying a story I once lived, breathed, and struggled through."
-      </p>
-      <div class="btn-row" style="justify-content:center;">
-        <a class="btn pink" href="contact.html">Get In Touch &#8594;</a>
-      </div>
+  </a>
+  <div class="divider"></div>
+  <a class="panel panel-game" href="game/index.html">
+    <div class="panel-inner">
+      <span class="panel-eyebrow">Press Start</span>
+      <h2 class="panel-title">Game Mode</h2>
+      <p class="panel-desc">The full arcade experience — pixel art, retro UI, and the same projects with a lot more personality.</p>
+      <span class="panel-cta">Start Game &#8594;</span>
     </div>
-  </section>
-</main>
+  </a>
+</div>
 
-<footer>
-  <div class="wrap">
-    <p>&copy; 2026 RIA IYER &mdash; BUILT WITH PIXELS &amp; PERSISTENCE</p>
-    <p><a href="https://www.linkedin.com/in/ria-iyer/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
-  </div>
-</footer>
-<script src="assets/js/main.js"></script>
 </body>
 </html>
