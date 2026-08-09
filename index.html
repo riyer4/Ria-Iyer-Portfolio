@@ -57,11 +57,6 @@
     background:var(--game-pink); color:#0d0b1a; border:2px solid #000; box-shadow:4px 4px 0 #000;
   }
 
-  .divider{
-    position:absolute; left:50%; top:0; bottom:0; width:1px;
-    background:rgba(128,128,128,.35); z-index:2; pointer-events:none;
-  }
-
   .center-label{
     position:absolute; top:24px; left:50%; transform:translateX(-50%);
     z-index:3; text-align:center; pointer-events:none;
@@ -74,7 +69,6 @@
     .chooser:has(.panel:hover) .panel:not(:hover){ flex:1; }
     .chooser:has(.panel:hover) .panel:hover{ flex:1; }
     .panel{ min-height:50vh; flex:none !important; }
-    .divider{ display:none; }
   }
 </style>
 </head>
@@ -91,7 +85,6 @@
       <span class="panel-cta">Enter Professional Site &#8594;</span>
     </div>
   </a>
-  <div class="divider"></div>
   <a class="panel panel-game" href="game/index.html">
     <div class="panel-inner">
       <span class="panel-eyebrow">Press Start</span>
