@@ -13,7 +13,7 @@ function proInit() {
       fetch(form.dataset.endpoint, { method: 'POST', body: new URLSearchParams(new FormData(form)) })
         .then(function (r) { return r.json(); })
         .then(function (res) {
-          if (res && res.ok) { form.reset(); say("Thanks! I'll get back to you as soon as I can.", 'is-ok'); }
+          if (res && res.ok) { form.reset(); say("Thanks! I'll get back to you as soon as I can!", 'is-ok'); }
           else say((res && res.error) || fail, 'is-err');
         })
         .catch(function () { say(fail, 'is-err'); })
